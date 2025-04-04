@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { User } from '@/lib/types/user';
 import { UserService } from '@/services/UserService';
+import { User } from '@/shared/types/user';
 
 const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);

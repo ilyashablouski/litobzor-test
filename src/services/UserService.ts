@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { User } from '@/lib/types/user';
+import { User } from '@/shared/types/user';
 
 export class UserService {
   private static readonly API_URL = 'https://jsonplaceholder.typicode.com/users';

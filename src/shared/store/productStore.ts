@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
-import { initialProducts } from '@/lib/data/products';
-import { Product } from '@/lib/types/product';
+import { initialProducts } from '@/shared/data/products';
+import { Product } from '@/shared/types/product';
 
 interface ProductState {
   products: Product[];

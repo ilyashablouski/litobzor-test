@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import ProductForm from '@/components/ProductForm';
 import ProductItem from '@/components/ProductItem';
-import { useProductStore } from '@/lib/store/productStore';
+import { useProductStore } from '@/shared/store/productStore';
 
 const ProductList = () => {
   const [highlightEnabled, setHighlightEnabled] = useState(false);

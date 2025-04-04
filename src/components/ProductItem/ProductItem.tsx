@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Product } from '@/lib/types/product';
+import { Product } from '@/shared/types/product';
 
 interface ProductItemProps {
   product: Product;

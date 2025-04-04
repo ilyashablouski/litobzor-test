@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useProductStore } from '@/lib/store/productStore';
+import { useProductStore } from '@/shared/store/productStore';
 
 interface ProductFormData {
   name: string;
