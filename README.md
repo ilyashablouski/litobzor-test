@@ -58,7 +58,7 @@ commands:
 
 ### Development Mode
 
-Run the app in development mode with Turbopack for faster builds:
+Run the app in development mode:
 
 ```bash
 yarn dev
@@ -105,7 +105,8 @@ yarn lint
   localStorage in
   your browser console:
   `localStorage.clear();`
-- **Turbopack**: The dev script uses Next.js Turbopack for faster development builds.
+
+---
 
 ## License
 

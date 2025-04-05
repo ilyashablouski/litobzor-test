@@ -4,7 +4,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, 'src/styles')],
+    includePaths: [path.join(__dirname, 'src/assets/styles')],
     additionalData: `@use "services.scss" as *;`,
   },
 
@@ -17,12 +17,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  },
-
-  experimental: {
-    turbo: {
-      treeShaking: true,
-    },
   },
 
   webpack(config) {
