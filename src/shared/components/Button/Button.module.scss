@@ -1,16 +1,23 @@
 .button {
   padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
   background: $buttons-primary-default;
   color: $text-primary-inv;
   border: none;
   border-radius: 6px;
   font-weight: 500;
   font-size: 0.875rem;
+  line-height: 100%;
   cursor: pointer;
   transition: $hover-transition;
 
   &:hover {
     background: $buttons-primary-hover;
+  }
+
+  & svg {
+    margin-right: 8px;
   }
 }
 
