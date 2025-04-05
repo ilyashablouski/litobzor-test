@@ -1,7 +1,7 @@
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 
-import { loadProductsFromLocalStorage } from '@/shared/helpers/loadProductsFromLocalStorage';
+import { initialProducts } from '@/shared/data/products';
 import { Product } from '@/shared/types/product';
 
 interface ProductState {
@@ -9,29 +9,41 @@ interface ProductState {
   addProduct: (product: Omit<Product, 'id'>) => void;
 }
 
-//Todo: remove devtools in production
-
-// Create the Zustand store
-export const useProductStore = create<ProductState>(
-  // @ts-expect-error use devtools
-  devtools(
+// Create the Zustand store with persist middleware
+export const useProductStore = create<ProductState>()(
+  persist(
     (set) => ({
-      // Initialize products from localStorage or initialProducts
-      products: loadProductsFromLocalStorage(),
+      // Initial state combines initialProducts with any persisted data
+      products: initialProducts,
 
-      // Add a new product and save to localStorage
+      // Action to add a new product and update the persisted state
       addProduct: (product) =>
         set((state) => {
-          // Generate a new ID based on the highest existing ID
-          const newId = Math.max(...state.products.map((product) => product.id), 0) + 1;
+          // Generate a new unique ID based on the highest existing ID
+          const newId = Math.max(...state.products.map((p) => p.id), 0) + 1;
+          // Create the new product with the generated ID
           const newProduct = { id: newId, ...product };
-          const updatedProducts = [...state.products, newProduct];
-
-          // Save the updated products list to localStorage
-          localStorage.setItem('products', JSON.stringify(updatedProducts));
-          return { products: updatedProducts };
+          // Return the updated products array
+          return { products: [...state.products, newProduct] };
         }),
     }),
-    { name: 'ProductStore' },
+    {
+      // Configuration for persist middleware
+      name: 'products-storage', // Key in localStorage where data is stored
+      // Custom merge function to combine initialProducts with stored data
+      merge: (persistedState, currentState) => {
+        const persisted = (persistedState as ProductState)?.products || [];
+        // Combine initialProducts with persisted data, avoiding duplicates by ID
+        return {
+          products: [
+            ...currentState.products,
+            ...persisted.filter((stored) =>
+              currentState.products.some((initial) => initial.id === stored.id),
+            ),
+          ],
+          addProduct: currentState.addProduct,
+        };
+      },
+    },
   ),
 );
