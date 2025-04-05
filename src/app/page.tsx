@@ -1,5 +1,5 @@
-import ProductList from '@/components/ProductList';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <ProductList />;
+  redirect('/products');
 }

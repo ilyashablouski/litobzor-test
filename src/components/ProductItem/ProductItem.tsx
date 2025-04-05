@@ -11,7 +11,7 @@ interface ProductItemProps {
 const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
   return (
     <div className={`product-item ${highlighted ? 'highlighted' : ''}`}>
-      <Image src={product.image} alt={product.name} width={150} height={150} priority={true} />
+      <Image src={product.image} alt={product.name} width={150} height={150} priority={false} />
 
       <h3>{product.name}</h3>
       <p>Цена: {product.price}&nbsp;₽</p>
