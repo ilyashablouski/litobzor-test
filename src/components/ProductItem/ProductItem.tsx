@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 import styles from './ProductItem.module.scss';
+import { BLUR_DATA_URL } from '@/shared/constants/urls';
 import { Product } from '@/shared/types/product';
 
 interface ProductItemProps {
@@ -19,6 +20,9 @@ const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
           fill
           sizes={'(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
           objectFit="cover"
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
+          style={{ objectFit: 'cover' }}
         />
       </div>
 
