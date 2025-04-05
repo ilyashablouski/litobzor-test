@@ -14,7 +14,7 @@ const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
     <div className={`${styles.productItem} ${highlighted ? styles.highlighted : ''}`}>
       <div className={styles.productItemTop}>
         <Image
-          src={product.image || '/placeholder.svg'}
+          src={product.image || '/placeholder.svg?height=200&width=200'}
           alt={product.name}
           fill
           sizes={'(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}

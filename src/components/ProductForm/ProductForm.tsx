@@ -41,7 +41,7 @@ const ProductForm: FC<IProductFormProps> = ({ setIsOpen }) => {
             type="number"
             placeholder="Цена"
           />
-          <input {...register('image', { required: true })} placeholder="Ссылка на изображение:" />
+          <input {...register('image', { required: false })} placeholder="Ссылка на изображение:" />
           <Button type="submit">Добавить</Button>
           <Button type="button" onClick={handleClose}>
             Отмена
