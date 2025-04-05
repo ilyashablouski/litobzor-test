@@ -1,16 +1,22 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
+
+import styles from './Button.module.scss';
 
 interface IButtonProps {
   type?: 'submit' | 'button';
-  text?: string;
-  icon?: React.ReactNode | string;
+  variant?: 'basic' | 'close';
+  icon?: ReactNode | string;
   onClick?: () => void;
-  children?: React.ReactNode | string;
+  children?: ReactNode | string;
 }
 
-const Button: FC<IButtonProps> = ({ type = 'button', icon, onClick, children }) => {
+const Button: FC<IButtonProps> = ({ type = 'button', variant = 'basic', icon, onClick, children }) => {
   return (
-    <button className="button" type={type} onClick={onClick}>
+    <button
+      className={variant === 'close' ? styles.closeButton : styles.button}
+      type={type}
+      onClick={onClick}
+    >
       {icon} {children}
     </button>
   );

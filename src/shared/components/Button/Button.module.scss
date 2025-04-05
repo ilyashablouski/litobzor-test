@@ -1,0 +1,30 @@
+.button {
+  padding: 8px 16px;
+  background: $buttons-primary-default;
+  color: $text-primary-inv;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: $hover-transition;
+
+  &:hover {
+    background: $buttons-primary-hover;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  font-weight: 500;
+  background: $buttons-primary-default;
+  color: $text-primary-inv;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
