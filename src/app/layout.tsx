@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 
-import NavigationMenu from '@/components/NavigationMenu';
+import Header from '@/components/Header';
 
 import type { Metadata } from 'next';
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <NavigationMenu />
+        <Header />
         <main>{children}</main>
       </body>
     </html>
