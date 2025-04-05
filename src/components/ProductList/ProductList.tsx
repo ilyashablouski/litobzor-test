@@ -15,7 +15,7 @@ const ProductList = () => {
   return (
     <div className="product-list">
       <button onClick={() => setHighlightEnabled(!highlightEnabled)}>
-        {highlightEnabled ? 'Disable' : 'Enable'} Highlight
+        {highlightEnabled ? 'Disable' : 'Enable'} Highlight if price&nbsp;{'>'}&nbsp;₽1000&nbsp;₽
       </button>
       <ProductForm />
       <div className="products-grid">
