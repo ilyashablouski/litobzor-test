@@ -5,12 +5,13 @@ interface IButtonProps {
   text?: string;
   icon?: React.ReactNode | string;
   onClick?: () => void;
+  children?: React.ReactNode | string;
 }
 
-const Button: FC<IButtonProps> = ({ type, text, icon, onClick }) => {
+const Button: FC<IButtonProps> = ({ type = 'button', icon, onClick, children }) => {
   return (
     <button className="button" type={type} onClick={onClick}>
-      {icon} {text}
+      {icon} {children}
     </button>
   );
 };
