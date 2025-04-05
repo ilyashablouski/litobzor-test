@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
 import { initialProducts } from '@/shared/data/products';
 import { Product } from '@/shared/types/product';
@@ -8,10 +9,19 @@ interface ProductState {
   addProduct: (product: Omit<Product, 'id'>) => void;
 }
 
-export const useProductStore = create<ProductState>((set) => ({
-  products: initialProducts,
-  addProduct: (product) =>
-    set((state) => ({
-      products: [...state.products, { ...product, id: Date.now() }],
-    })),
-}));
+//Todo: remove devtools in production
+export const useProductStore = create<ProductState>(
+  // @ts-expect-error use devtools
+  devtools(
+    (set) => ({
+      products: initialProducts,
+      addProduct: (product) =>
+        set((state) => {
+          return {
+            products: [...state.products, { id: Date.now(), ...product }],
+          };
+        }),
+    }),
+    { name: 'ProductStore' },
+  ),
+);

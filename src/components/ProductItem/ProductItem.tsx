@@ -10,7 +10,7 @@ interface ProductItemProps {
 const ProductItem = ({ product, highlighted }: ProductItemProps) => {
   return (
     <div className={`product-item ${highlighted ? 'highlighted' : ''}`}>
-      <Image src={product.image} alt={product.name} width={150} height={150} />
+      <Image src={product.image} alt={product.name} width={150} height={150} priority={true} />
 
       <h3>{product.name}</h3>
       <p>Price: ${product.price}</p>
