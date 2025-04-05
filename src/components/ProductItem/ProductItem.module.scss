@@ -2,9 +2,21 @@
   border: 1px solid $border;
   border-radius: 8px;
   box-shadow: $sh-card;
+  aspect-ratio: 1 / 1;
 
   &Bottom {
     padding: 16px;
+  }
+
+  &Title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &Price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.75rem;
   }
 
   &.highlighted {

@@ -15,8 +15,8 @@ const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
       <Image src={product.image} alt={product.name} width={150} height={150} priority={false} />
 
       <div className={styles.productItemBottom}>
-        <h3>{product.name}</h3>
-        <p>Цена: {product.price}&nbsp;₽</p>
+        <h3 className={styles.productItemTitle}>{product.name}</h3>
+        <span className={styles.productItemPrice}>Цена: {product.price}&nbsp;₽</span>
       </div>
     </div>
   );
