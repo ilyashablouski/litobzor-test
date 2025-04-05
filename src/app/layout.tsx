@@ -4,7 +4,7 @@ import Header from '@/shared/components/Header';
 
 import type { Metadata } from 'next';
 
-import '@/styles/index.scss';
+import '@/assets/styles/index.scss';
 
 const interSans = Inter({
   variable: '--font-inter',
@@ -14,7 +14,7 @@ const interSans = Inter({
 
 export const metadata: Metadata = {
   title: 'Litobzor test',
-  description: 'Test task for Litobzor company',
+  description: 'Test.tsx task for Litobzor company',
 };
 
 export default function RootLayout({
