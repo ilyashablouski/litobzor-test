@@ -2,6 +2,7 @@
   border: 1px solid $border;
   border-radius: 8px;
   box-shadow: $sh-card;
+  overflow: hidden;
 
   &Top {
     position: relative;
