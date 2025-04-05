@@ -7,6 +7,8 @@ import ProductItem from '@/components/ProductItem';
 import Button from '@/shared/components/Button';
 import { useProductStore } from '@/shared/store/productStore';
 
+import PlusIcon from '@/assets/icons/PlusIcon.svg';
+
 const HIGHLIGHT_THRESHOLD = 1000;
 
 const ProductList = () => {
@@ -27,7 +29,9 @@ const ProductList = () => {
           {highlightEnabled ? 'Выключить' : 'Включить'} подсветку для цeны&nbsp;{'>'}&nbsp;
           {HIGHLIGHT_THRESHOLD}&nbsp;₽
         </Button>
-        <Button onClick={() => setIsOpenForm(true)}>Добавить товар</Button>
+        <Button icon={<PlusIcon />} onClick={() => setIsOpenForm(true)}>
+          Добавить товар
+        </Button>
       </div>
 
       <ProductForm isOpen={isOpenForm} setIsOpen={setIsOpenForm} />

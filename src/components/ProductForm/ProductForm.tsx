@@ -23,11 +23,19 @@ const ProductForm: FC<IProductFormProps> = ({ isOpen, setIsOpen }) => {
     setIsOpen(false);
   };
 
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       {isOpen && (
         //ToDo: use portal instead of div
         <div className="modal">
+          <Button variant="close" onClick={handleClose}>
+            X
+          </Button>
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <input {...register('name', { required: true })} placeholder="Название" />
             <input
@@ -37,7 +45,7 @@ const ProductForm: FC<IProductFormProps> = ({ isOpen, setIsOpen }) => {
             />
             <input {...register('image', { required: true })} placeholder="Ссылка на изображение:" />
             <Button type="submit">Добавить</Button>
-            <Button type="button" onClick={() => setIsOpen(false)}>
+            <Button type="button" onClick={handleClose}>
               Отмена
             </Button>
           </form>
