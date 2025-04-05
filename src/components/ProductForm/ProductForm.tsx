@@ -1,21 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { ProductFormData } from '@/components/ProductForm/types';
+import Button from '@/shared/components/Button';
 import { useProductStore } from '@/shared/store/productStore';
 
-interface ProductFormData {
-  name: string;
-  price: number;
-  image: string;
+interface IProductFormProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-const ProductForm = () => {
+const ProductForm: FC<IProductFormProps> = ({ isOpen, setIsOpen }) => {
   const { register, handleSubmit, reset } = useForm<ProductFormData>();
   //ToDo: create action creator?
   const addProduct = useProductStore((state) => state.addProduct);
-  const [isOpen, setIsOpen] = useState(false);
 
   const onSubmit = (data: ProductFormData) => {
     addProduct(data);
@@ -25,7 +25,6 @@ const ProductForm = () => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Добавить товар</button>
       {isOpen && (
         //ToDo: use portal instead of div
         <div className="modal">
@@ -37,10 +36,10 @@ const ProductForm = () => {
               placeholder="Цена"
             />
             <input {...register('image', { required: true })} placeholder="Ссылка на изображение:" />
-            <button type="submit">Добавить</button>
-            <button type="button" onClick={() => setIsOpen(false)}>
+            <Button type="submit">Добавить</Button>
+            <Button type="button" onClick={() => setIsOpen(false)}>
               Отмена
-            </button>
+            </Button>
           </form>
         </div>
       )}
