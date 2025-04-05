@@ -24,29 +24,30 @@ const ProductList = () => {
   };
 
   return (
-    <div className={styles.productList}>
-      <div className={styles.productListActions}>
-        <Button onClick={toggleHighlight}>
-          {highlightEnabled ? 'Выключить' : 'Включить'}&nbsp;подсветку&nbsp;для&nbsp;цeны&nbsp;{'>'}&nbsp;
-          {HIGHLIGHT_THRESHOLD}&nbsp;₽
-        </Button>
-        <Button icon={<PlusIcon />} onClick={() => setIsOpenForm(true)}>
-          Добавить&nbsp;товар
-        </Button>
+    <>
+      <div className={styles.productList}>
+        <div className={styles.productListActions}>
+          <Button onClick={toggleHighlight}>
+            {highlightEnabled ? 'Выключить' : 'Включить'}&nbsp;подсветку&nbsp;для&nbsp;цeны&nbsp;{'>'}&nbsp;
+            {HIGHLIGHT_THRESHOLD}&nbsp;₽
+          </Button>
+          <Button icon={<PlusIcon />} onClick={() => setIsOpenForm(true)}>
+            Добавить&nbsp;товар
+          </Button>
+        </div>
+        <div className={styles.productListItems}>
+          {products.map((product) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+              highlighted={highlightEnabled && product.price > HIGHLIGHT_THRESHOLD}
+            />
+          ))}
+        </div>
       </div>
 
-      <ProductForm isOpen={isOpenForm} setIsOpen={setIsOpenForm} />
-
-      <div className={styles.productListItems}>
-        {products.map((product) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            highlighted={highlightEnabled && product.price > HIGHLIGHT_THRESHOLD}
-          />
-        ))}
-      </div>
-    </div>
+      {isOpenForm && <ProductForm setIsOpen={setIsOpenForm} />}
+    </>
   );
 };
 
