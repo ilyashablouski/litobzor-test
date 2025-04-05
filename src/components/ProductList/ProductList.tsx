@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import styles from './ProductList.module.scss';
 import ProductForm from '@/components/ProductForm';
 import ProductItem from '@/components/ProductItem';
 import Button from '@/shared/components/Button';
@@ -23,20 +24,20 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list">
-      <div className="product-list-actions">
+    <div className={styles.productList}>
+      <div className={styles.productListActions}>
         <Button onClick={toggleHighlight}>
-          {highlightEnabled ? 'Выключить' : 'Включить'} подсветку для цeны&nbsp;{'>'}&nbsp;
+          {highlightEnabled ? 'Выключить' : 'Включить'}&nbsp;подсветку&nbsp;для&nbsp;цeны&nbsp;{'>'}&nbsp;
           {HIGHLIGHT_THRESHOLD}&nbsp;₽
         </Button>
         <Button icon={<PlusIcon />} onClick={() => setIsOpenForm(true)}>
-          Добавить товар
+          Добавить&nbsp;товар
         </Button>
       </div>
 
       <ProductForm isOpen={isOpenForm} setIsOpen={setIsOpenForm} />
 
-      <div className="products-grid">
+      <div className={styles.productListItems}>
         {products.map((product) => (
           <ProductItem
             key={product.id}
