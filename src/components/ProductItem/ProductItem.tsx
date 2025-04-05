@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
+import styles from './ProductItem.module.scss';
 import { Product } from '@/shared/types/product';
 
 interface ProductItemProps {
@@ -10,11 +11,13 @@ interface ProductItemProps {
 
 const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
   return (
-    <div className={`product-item ${highlighted ? 'highlighted' : ''}`}>
+    <div className={`${styles.productItem} ${highlighted ? styles.highlighted : ''}`}>
       <Image src={product.image} alt={product.name} width={150} height={150} priority={false} />
 
-      <h3>{product.name}</h3>
-      <p>Цена: {product.price}&nbsp;₽</p>
+      <div className={styles.productItemBottom}>
+        <h3>{product.name}</h3>
+        <p>Цена: {product.price}&nbsp;₽</p>
+      </div>
     </div>
   );
 };

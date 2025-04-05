@@ -1,0 +1,14 @@
+.productItem {
+  border: 1px solid $border;
+  border-radius: 8px;
+  box-shadow: $sh-card;
+
+  &Bottom {
+    padding: 16px;
+  }
+
+  &.highlighted {
+    background-color: $extra-highlight;
+  }
+}
+
