@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { FC } from 'react';
 
 import { Product } from '@/shared/types/product';
 
@@ -7,7 +8,7 @@ interface ProductItemProps {
   highlighted: boolean;
 }
 
-const ProductItem = ({ product, highlighted }: ProductItemProps) => {
+const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
   return (
     <div className={`product-item ${highlighted ? 'highlighted' : ''}`}>
       <Image src={product.image} alt={product.name} width={150} height={150} priority={true} />
