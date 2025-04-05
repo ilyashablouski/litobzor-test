@@ -12,7 +12,14 @@ interface ProductItemProps {
 const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
   return (
     <div className={`${styles.productItem} ${highlighted ? styles.highlighted : ''}`}>
-      <Image src={product.image} alt={product.name} width={150} height={150} priority={false} />
+      <div className={styles.productItemTop}>
+        <Image
+          src={product.image || '/placeholder.svg'}
+          alt={product.name}
+          fill
+          sizes={'(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+        />
+      </div>
 
       <div className={styles.productItemBottom}>
         <h3 className={styles.productItemTitle}>{product.name}</h3>

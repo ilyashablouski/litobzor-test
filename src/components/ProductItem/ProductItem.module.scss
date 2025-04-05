@@ -2,7 +2,11 @@
   border: 1px solid $border;
   border-radius: 8px;
   box-shadow: $sh-card;
-  aspect-ratio: 1 / 1;
+
+  &Top {
+    position: relative;
+    aspect-ratio: 1 / 1;
+  }
 
   &Bottom {
     padding: 16px;
