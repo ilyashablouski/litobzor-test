@@ -1,9 +1,12 @@
 .navigation {
+  margin: 0 auto;
   padding: 0 2rem;
+  max-width: 1500px;
   display: flex;
   align-items: center;
   gap: 1.5rem;
   height: 4rem;
+
 
   @include media-max($md) {
     padding: 0 1rem;
