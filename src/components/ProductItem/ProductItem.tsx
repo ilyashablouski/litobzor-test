@@ -13,7 +13,7 @@ const ProductItem = ({ product, highlighted }: ProductItemProps) => {
       <Image src={product.image} alt={product.name} width={150} height={150} priority={true} />
 
       <h3>{product.name}</h3>
-      <p>Price: {product.price}&nbsp;₽</p>
+      <p>Цена: {product.price}&nbsp;₽</p>
     </div>
   );
 };

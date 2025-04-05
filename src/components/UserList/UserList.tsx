@@ -16,9 +16,9 @@ const UserList = () => {
     <table className="user-list">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Имя</th>
           <th>Email</th>
-          <th>Phone</th>
+          <th>Телефон</th>
         </tr>
       </thead>
       <tbody>

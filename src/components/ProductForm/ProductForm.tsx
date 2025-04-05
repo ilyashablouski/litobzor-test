@@ -25,21 +25,21 @@ const ProductForm = () => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Add Product</button>
+      <button onClick={() => setIsOpen(true)}>Добавить товар</button>
       {isOpen && (
         //ToDo: use portal instead of div
         <div className="modal">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <input {...register('name', { required: true })} placeholder="Name" />
+            <input {...register('name', { required: true })} placeholder="Название" />
             <input
               {...register('price', { required: true, valueAsNumber: true })}
               type="number"
-              placeholder="Price"
+              placeholder="Цена"
             />
-            <input {...register('image', { required: true })} placeholder="Image URL" />
-            <button type="submit">Add</button>
+            <input {...register('image', { required: true })} placeholder="Ссылка на изображение:" />
+            <button type="submit">Добавить</button>
             <button type="button" onClick={() => setIsOpen(false)}>
-              Cancel
+              Отмена
             </button>
           </form>
         </div>

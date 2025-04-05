@@ -14,13 +14,13 @@ const NavigationMenu = () => {
         href="/products"
         className={`${styles.navigationLink} ${pathname === '/products' || pathname === '/' ? styles.active : ''}`}
       >
-        Products
+        Товары
       </Link>
       <Link
         href="/users"
         className={`${styles.navigationLink} ${pathname === '/users' ? styles.active : ''}`}
       >
-        Users
+        Пользователи
       </Link>
     </nav>
   );
