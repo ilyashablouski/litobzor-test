@@ -7,13 +7,14 @@ import ProductItem from '@/components/ProductItem';
 import Button from '@/shared/components/Button';
 import { useProductStore } from '@/shared/store/productStore';
 
+const HIGHLIGHT_THRESHOLD = 1000;
+
 const ProductList = () => {
   const [highlightEnabled, setHighlightEnabled] = useState(false);
   const [isOpenForm, setIsOpenForm] = useState(false);
 
   //ToDo: create action creator?
   const products = useProductStore((state) => state.products);
-  const HIGHLIGHT_THRESHOLD = 1000;
 
   const toggleHighlight = () => {
     setHighlightEnabled(!highlightEnabled);
