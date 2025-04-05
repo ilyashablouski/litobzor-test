@@ -1,0 +1,21 @@
+.navigation {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 4rem;
+
+  &Link {
+    color: $text-secondary;
+    font-weight: 500;
+    transition: $hover-transition;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    &.active {
+      color: $text-primary;
+    }
+  }
+}
