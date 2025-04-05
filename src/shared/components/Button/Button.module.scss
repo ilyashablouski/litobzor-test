@@ -12,6 +12,10 @@
   cursor: pointer;
   transition: $hover-transition;
 
+  @include media-max($md) {
+    font-size: 0.8rem;
+  }
+
   &:hover {
     background: $buttons-primary-hover;
   }

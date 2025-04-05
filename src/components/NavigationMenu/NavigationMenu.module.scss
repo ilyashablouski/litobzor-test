@@ -5,6 +5,10 @@
   gap: 1.5rem;
   height: 4rem;
 
+  @include media-max($md) {
+    padding: 0 1rem;
+  }
+
   &Link {
     color: $text-secondary;
     font-weight: 500;
