@@ -41,17 +41,24 @@ const ProductForm: FC<IProductFormProps> = ({ setIsOpen }) => {
           </Button>
 
           <form className={styles.modalForm} onSubmit={handleSubmit(onSubmit)}>
-            <input {...register('name', { required: true })} placeholder="Название" />
-            <input
-              {...register('price', { required: true, valueAsNumber: true })}
-              type="number"
-              placeholder="Цена"
-            />
-            <input {...register('image', { required: false })} placeholder="Ссылка на изображение:" />
-            <Button type="submit">Добавить</Button>
-            <Button type="button" onClick={handleClose}>
-              Отмена
-            </Button>
+            <div className={styles.modalFormControls}>
+              <input {...register('name', { required: true })} placeholder="Название" />
+              <input
+                {...register('price', { required: true, valueAsNumber: true })}
+                type="number"
+                placeholder="Цена"
+              />
+              <input {...register('image', { required: false })} placeholder="Ссылка на изображение:" />
+            </div>
+
+            <div className={styles.modalFormActions}>
+              <Button type="button" onClick={handleClose} w100>
+                Отмена
+              </Button>
+              <Button type="submit" w100>
+                Добавить
+              </Button>
+            </div>
           </form>
         </div>
       </div>
