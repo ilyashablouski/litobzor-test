@@ -13,9 +13,9 @@ interface IProductFormProps {
 }
 
 const ProductForm: FC<IProductFormProps> = ({ setIsOpen }) => {
-  const { register, handleSubmit, reset } = useForm<ProductFormData>();
-  //ToDo: create action creator?
   const addProduct = useProductStore((state) => state.addProduct);
+
+  const { register, handleSubmit, reset } = useForm<ProductFormData>();
 
   const onSubmit = (data: ProductFormData) => {
     addProduct(data);
