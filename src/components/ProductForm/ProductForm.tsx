@@ -3,6 +3,7 @@
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
+import styles from './ProductForm.module.scss';
 import { ProductFormData } from '@/components/ProductForm/types';
 import Button from '@/shared/components/Button';
 import Portal from '@/shared/components/Portal';
@@ -33,24 +34,26 @@ const ProductForm: FC<IProductFormProps> = ({ setIsOpen }) => {
 
   return (
     <Portal>
-      <div className="modal">
-        <Button variant="close" onClick={handleClose}>
-          X
-        </Button>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input {...register('name', { required: true })} placeholder="Название" />
-          <input
-            {...register('price', { required: true, valueAsNumber: true })}
-            type="number"
-            placeholder="Цена"
-          />
-          <input {...register('image', { required: false })} placeholder="Ссылка на изображение:" />
-          <Button type="submit">Добавить</Button>
-          <Button type="button" onClick={handleClose}>
-            Отмена
+      <div className={styles.modalBackdrop}>
+        <div className={styles.modal}>
+          <Button variant="close" onClick={handleClose}>
+            X
           </Button>
-        </form>
+
+          <form className={styles.modalForm} onSubmit={handleSubmit(onSubmit)}>
+            <input {...register('name', { required: true })} placeholder="Название" />
+            <input
+              {...register('price', { required: true, valueAsNumber: true })}
+              type="number"
+              placeholder="Цена"
+            />
+            <input {...register('image', { required: false })} placeholder="Ссылка на изображение:" />
+            <Button type="submit">Добавить</Button>
+            <Button type="button" onClick={handleClose}>
+              Отмена
+            </Button>
+          </form>
+        </div>
       </div>
     </Portal>
   );
