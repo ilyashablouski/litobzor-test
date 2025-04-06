@@ -9,6 +9,7 @@ const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Fetch users from the API or cache when the component mounts
   useEffect(() => {
     setIsLoading(true);
 
@@ -18,7 +19,6 @@ const UserList = () => {
         setUsers(fetchedUsers);
       })
       .finally(() => {
-        // Set loading to false after fetching completes (success or failure)
         setIsLoading(false);
       });
   }, []); // Empty dependency array ensures this runs only once on mount
