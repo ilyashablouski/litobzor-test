@@ -24,7 +24,11 @@ const UserList = () => {
   }, []); // Empty dependency array ensures this runs only once on mount
 
   if (isLoading) {
-    return <p>Загрузка пользователей...</p>;
+    return (
+      <p style={{ marginTop: '50px', textAlign: 'center', fontSize: '1.5rem' }}>
+        Загрузка пользователей...
+      </p>
+    );
   }
 
   return (
