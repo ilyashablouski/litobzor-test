@@ -7,10 +7,25 @@ import { User } from '@/shared/types/user';
 
 const UserList = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    UserService.fetchUsers().then(setUsers);
-  }, []);
+    setIsLoading(true);
+
+    // Fetch users and update state
+    UserService.fetchUsers()
+      .then((fetchedUsers) => {
+        setUsers(fetchedUsers);
+      })
+      .finally(() => {
+        // Set loading to false after fetching completes (success or failure)
+        setIsLoading(false);
+      });
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  if (isLoading) {
+    return <p>Загрузка пользователей...</p>;
+  }
 
   return (
     <table className="user-list">
