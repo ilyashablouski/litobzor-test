@@ -7,12 +7,21 @@ interface IButtonProps {
   variant?: 'basic' | 'close';
   icon?: ReactNode | string;
   onClick?: () => void;
+  w100?: boolean;
   children?: ReactNode | string;
 }
 
-const Button: FC<IButtonProps> = ({ type = 'button', variant = 'basic', icon, onClick, children }) => {
+const Button: FC<IButtonProps> = ({
+  type = 'button',
+  variant = 'basic',
+  icon,
+  onClick,
+  w100 = false,
+  children,
+}) => {
   return (
     <button
+      style={w100 ? { width: '100%', display: 'flex', justifyContent: 'center' } : {}}
       className={variant === 'close' ? styles.closeButton : styles.button}
       type={type}
       onClick={onClick}
