@@ -37,8 +37,8 @@ export const useProductStore = create<ProductState>()(
         return {
           products: [
             ...currentState.products,
-            ...persisted.filter((stored) =>
-              currentState.products.some((initial) => initial.id === stored.id),
+            ...persisted.filter(
+              (stored) => !currentState.products.some((initial) => initial.id === stored.id),
             ),
           ],
           addProduct: currentState.addProduct,

@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    minimumCacheTTL: 60,
   },
 
   webpack(config) {
