@@ -16,7 +16,6 @@ const ProductList = () => {
   const [highlightEnabled, setHighlightEnabled] = useState(false);
   const [isOpenForm, setIsOpenForm] = useState(false);
 
-  //ToDo: create action creator?
   const products = useProductStore((state) => state.products);
 
   const toggleHighlight = () => {
