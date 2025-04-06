@@ -1,0 +1,58 @@
+@use "../services" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $inter, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 24px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1500px;
+  padding: 50px 32px 50px;
+  @include media-max($md) {
+    padding: 40px 16px 40px;
+  }
+}
+
+html,
+body,
+main {
+  ::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    background-color: $border;
+    backdrop-filter: blur(24px);
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background-color: transparent;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+ul,
+li {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
