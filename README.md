@@ -37,7 +37,7 @@ Follow these steps to set up the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/litobzor-test-task.git
+   git clone https://github.com/ilyashablouski/litobzor-test.git
    ```
     ```bash
    cd litobzor-test-task
@@ -111,5 +111,5 @@ yarn lint
 ## License
 
 This project is licensed under the MIT License.  
-Built with ❤️ by Ilya Shablouski for Litobzor Test Task.
+Built with ❤️ by Ilya Shablouski for Litobzor.
 
