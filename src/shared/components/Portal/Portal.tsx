@@ -11,9 +11,11 @@ interface IPortalProps {
 export const Portal: FC<IPortalProps> = ({ children, container }) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    document.body.style.marginRight = '0.4rem';
 
     return () => {
       document.body.style.overflow = 'auto';
+      document.body.style.marginRight = '0';
     };
   }, []);
 
