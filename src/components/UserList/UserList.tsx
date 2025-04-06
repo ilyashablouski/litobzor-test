@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+import styles from './UserList.module.scss';
 import { UserService } from '@/services/UserService';
 import { User } from '@/shared/types/user';
 
@@ -33,7 +34,7 @@ const UserList = () => {
   }
 
   return (
-    <table className="user-list">
+    <table className={styles.userList}>
       <thead>
         <tr>
           <th>Имя</th>

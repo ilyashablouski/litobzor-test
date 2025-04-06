@@ -1,15 +1,13 @@
 .product {
   &List {
-    margin-top: 2rem;
-
     &Actions {
+      margin-bottom: 1rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
     &Items {
-      margin-top: 30px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1rem;
