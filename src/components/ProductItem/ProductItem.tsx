@@ -12,8 +12,10 @@ interface ProductItemProps {
 
 const ProductItem: FC<ProductItemProps> = ({ product, highlighted }) => {
   return (
+    // Apply 'highlighted' class conditionally for styling expensive products
     <div className={`${styles.productItem} ${highlighted ? styles.highlighted : ''}`}>
       <div className={styles.productItemTop}>
+        {/* Use Next.js Image component for optimized image rendering */}
         <Image
           src={product.image || '/placeholder.svg?height=200&width=200'}
           alt={product.name}

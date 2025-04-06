@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import styles from './NavigationMenu.module.scss';
 
 const NavigationMenu = () => {
+  // Get the current pathname (e.g., '/products' or '/users')
   const pathname = usePathname();
 
   return (

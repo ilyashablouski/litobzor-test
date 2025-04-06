@@ -16,6 +16,7 @@ const ProductList = () => {
   const [highlightEnabled, setHighlightEnabled] = useState(false);
   const [isOpenForm, setIsOpenForm] = useState(false);
 
+  // Get the current list of products from the Zustand store
   const products = useProductStore((state) => state.products);
 
   const toggleHighlight = () => {

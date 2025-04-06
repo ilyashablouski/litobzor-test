@@ -13,12 +13,16 @@ interface IProductFormProps {
 }
 
 const ProductForm: FC<IProductFormProps> = ({ setIsOpen }) => {
+  // Get the addProduct action from the Zustand store
   const addProduct = useProductStore((state) => state.addProduct);
 
+  // Initialize react-hook-form with type-safe form handling
   const { register, handleSubmit, reset } = useForm<ProductFormData>();
 
   const onSubmit = (data: ProductFormData) => {
+    // Add the new product to the store (and localStorage via the store)
     addProduct(data);
+    // Reset the form fields after submission
     reset();
     setIsOpen(false);
   };

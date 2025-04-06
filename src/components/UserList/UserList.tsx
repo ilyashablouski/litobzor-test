@@ -23,6 +23,7 @@ const UserList = () => {
       });
   }, []); // Empty dependency array ensures this runs only once on mount
 
+  // Fallback to a loading message while users is being fetched
   if (isLoading) {
     return (
       <p style={{ marginTop: '50px', textAlign: 'center', fontSize: '1.5rem' }}>
