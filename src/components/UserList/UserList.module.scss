@@ -2,8 +2,25 @@
   width: 100%;
   border-collapse: collapse;
 
+  &Wrapper {
+    overflow-x: auto;
+    border: 1px solid $border;
+    border-radius: 8px;
+  }
+
   th, td {
     padding: 1rem;
-    border: 1px solid $border;
+  }
+
+  th {
+    border-bottom: 1px solid $border;
+  }
+
+  tr {
+    border-bottom: 1px solid $border;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 }

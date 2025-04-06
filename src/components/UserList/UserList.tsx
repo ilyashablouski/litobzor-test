@@ -34,24 +34,26 @@ const UserList = () => {
   }
 
   return (
-    <table className={styles.userList}>
-      <thead>
-        <tr>
-          <th>Имя</th>
-          <th>Email</th>
-          <th>Телефон</th>
-        </tr>
-      </thead>
-      <tbody>
-        {users.map((user) => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.phone}</td>
+    <div className={styles.userListWrapper}>
+      <table className={styles.userList}>
+        <thead>
+          <tr>
+            <th>Имя</th>
+            <th>Email</th>
+            <th>Телефон</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.phone}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
